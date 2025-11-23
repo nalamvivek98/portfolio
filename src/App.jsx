@@ -194,7 +194,7 @@ export default function App() {
           
           <div className="mt-8 pt-8 border-t border-slate-800 flex flex-col gap-4">
              <a 
-              href="/Portfolio/Vivek_Resume.pdf" 
+              href="/portfolio/Vivek_Resume.pdf" 
               download="Vivek_Resume.pdf"
               className="w-full py-3 bg-slate-800 text-center rounded-lg font-semibold text-slate-200 flex items-center justify-center gap-2"
               onClick={() => setMobileMenuOpen(false)}
