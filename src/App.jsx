@@ -53,27 +53,18 @@ const SkillCard = ({ icon: Icon, title, skills }) => (
 
 const TimelineItem = ({ role, company, duration, location, details, type }) => (
   <div className="relative pl-8 md:pl-0 md:grid md:grid-cols-5 md:gap-8 mb-12 last:mb-0 group">
-    {/* Line (Mobile) - Hides on last item to prevent dangling line */}
     <div className="absolute left-0 top-2 bottom-0 w-0.5 bg-slate-700 md:hidden group-last:bottom-auto group-last:h-full"></div>
-    
-    {/* Dot (Mobile) */}
     <div className="absolute left-[-5px] top-2 w-3 h-3 rounded-full bg-blue-500 md:hidden ring-4 ring-slate-950"></div>
-
-    {/* Left: Date & Type */}
     <div className="md:col-span-1 md:text-right md:pt-1">
       <p className="text-sm font-semibold text-blue-400 mb-1">{duration}</p>
       <span className="inline-block px-2 py-0.5 rounded text-xs font-medium bg-slate-800 text-slate-400 border border-slate-700">
         {type}
       </span>
     </div>
-
-    {/* Middle: Dot & Line (Desktop) */}
     <div className="hidden md:flex flex-col items-center relative">
       <div className="w-4 h-4 rounded-full bg-blue-500 z-10 shadow-[0_0_10px_rgba(59,130,246,0.5)] ring-4 ring-slate-950"></div>
       <div className="flex-grow w-0.5 bg-slate-700 absolute top-4 bottom-[-48px] group-last:hidden"></div>
     </div>
-
-    {/* Right: Content */}
     <div className="md:col-span-3 mt-2 md:mt-0">
       <h3 className="text-xl font-bold text-slate-100 leading-tight">{role}</h3>
       <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 text-slate-400 mb-4 mt-1">
@@ -157,7 +148,6 @@ export default function App() {
             </span>
           </a>
 
-          {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
             <NavLink href="#about">About</NavLink>
             <NavLink href="#skills">Skills</NavLink>
@@ -171,7 +161,6 @@ export default function App() {
             </a>
           </div>
 
-          {/* Mobile Menu Toggle */}
           <button 
             className="md:hidden text-slate-300 p-2 z-50 relative" 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -181,7 +170,6 @@ export default function App() {
           </button>
         </div>
 
-        {/* Mobile Nav Overlay */}
         <div className={`
           md:hidden fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 transition-transform duration-300 ease-in-out flex flex-col pt-24 px-6
           ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}
@@ -193,8 +181,9 @@ export default function App() {
           <NavLink href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</NavLink>
           
           <div className="mt-8 pt-8 border-t border-slate-800 flex flex-col gap-4">
+             {/* Using public folder path */}
              <a 
-              href="/portfolio/Vivek_Resume.pdf" 
+              href="Vivek_Resume.pdf" 
               download="Vivek_Resume.pdf"
               className="w-full py-3 bg-slate-800 text-center rounded-lg font-semibold text-slate-200 flex items-center justify-center gap-2"
               onClick={() => setMobileMenuOpen(false)}
@@ -212,18 +201,28 @@ export default function App() {
         </div>
       </nav>
 
-      {/* Hero Section */}
       <section className="relative pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden">
-        {/* Background Elements */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] md:w-[800px] h-[500px] bg-blue-600/10 blur-[80px] md:blur-[100px] rounded-full pointer-events-none"></div>
         <div className="absolute bottom-0 right-0 w-[300px] md:w-[600px] h-[400px] bg-indigo-600/5 blur-[60px] md:blur-[80px] rounded-full pointer-events-none"></div>
 
         <div className="container mx-auto px-6 relative z-10 text-center">
+          
+          <div className="flex justify-center mb-8">
+            <div className="relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full blur opacity-75"></div>
+              {/* Using public folder path */}
+              <img 
+                src="profile.jpg" 
+                alt="Leela Naga Vivek" 
+                className="relative w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-slate-900 object-cover shadow-2xl"
+              />
+            </div>
+          </div>
+
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-900/30 border border-blue-500/30 text-blue-300 text-xs font-semibold uppercase tracking-wider mb-6">
             <Terminal size={12} /> Data Engineer
           </div>
           
-          {/* Adjusted Font size for Mobile */}
           <h1 className="text-4xl md:text-7xl font-bold text-slate-100 mb-6 tracking-tight leading-tight">
             Architecting Scalable <br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Data Solutions</span>
@@ -240,8 +239,9 @@ export default function App() {
             >
               <ChevronDown size={18} /> View Work
             </a>
+            {/* Using public folder path */}
             <a 
-              href="/Vivek_Resume.pdf" 
+              href="Vivek_Resume.pdf" 
               download="Vivek_Resume.pdf"
               className="w-full sm:w-auto px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all shadow-lg shadow-blue-600/20 flex items-center justify-center gap-2"
             >
@@ -249,7 +249,6 @@ export default function App() {
             </a>
           </div>
 
-          {/* Stats / Highlights */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-4 mt-16 md:mt-20 border-t border-slate-800 pt-12 max-w-4xl mx-auto">
             {[
               { label: "Experience", value: "6+ Years" },
@@ -266,7 +265,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* Skills Section */}
       <section id="skills" className="py-16 md:py-20 bg-slate-900/50">
         <div className="container mx-auto px-6">
           <SectionTitle 
@@ -309,7 +307,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* Experience Section */}
       <section id="experience" className="py-16 md:py-20">
         <div className="container mx-auto px-6 max-w-5xl">
           <SectionTitle 
@@ -350,7 +347,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* Projects Section */}
       <section id="projects" className="py-16 md:py-20 bg-slate-900/50">
         <div className="container mx-auto px-6">
           <SectionTitle 
@@ -373,12 +369,10 @@ export default function App() {
         </div>
       </section>
 
-      {/* Education & Certs */}
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-6 max-w-5xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             
-            {/* Education */}
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <BookOpen className="text-blue-500" size={24} />
@@ -394,7 +388,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* Certifications */}
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <Award className="text-blue-500" size={24} />
@@ -419,7 +412,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* Footer / Contact */}
       <footer id="contact" className="bg-slate-950 border-t border-slate-800 pt-20 pb-10">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-slate-100 mb-6">Ready to Optimize Your Data Infrastructure?</h2>
@@ -447,8 +439,9 @@ export default function App() {
           <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm gap-4">
             <p>© {new Date().getFullYear()} Leela Naga Vivek. All rights reserved.</p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center">
+              {/* Using public folder path */}
               <a 
-                href="/Vivek_Resume.pdf" 
+                href="Vivek_Resume.pdf" 
                 download="Vivek_Resume.pdf"
                 className="flex items-center gap-1 text-slate-400 hover:text-blue-400 transition-colors"
               >
